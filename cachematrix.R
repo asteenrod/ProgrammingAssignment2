@@ -1,15 +1,9 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-
 #HW Assignment 2: Lexical Scoping 
 #Short comment on functions:
 #The function is made of two parts: 
-#The first part focuses on the getting and setting of the matrix values and assigning the values to the 
-#The second function actually computes the inverse of the assigned 'matrix' if the inverse hasn't already been computed and 
-#assigns the new computation value to the variable 'm' which is then cached within the function if it is called again. 
 
+#The first part focuses on the getting and setting of the matrix values. This part of the matrix assigns the values
+# and identifies the values within the environment that can be assigned. 
 makeCacheMatrix <- function(x = matrix()) {
     m<-NULL
     set <-function(trix) {
@@ -18,14 +12,17 @@ makeCacheMatrix <- function(x = matrix()) {
     }
     get <- function() x
     setsolve<-function(solve) m<<-solve
-    getsolve <- function() m
+    getsolve <- function() m 
     list (set = set, get = get, 
-        setsolve = setsolve, getsolve = getsolve)
+        setsolve = setsolve, getsolve = getsolve)#this code sets the names so that they can be called using $$ later
   }
 
 
 ## Write a short comment describing this function:
-#In this function, 
+#In this function, the inverse matrix is computed, either a new one is computed (since the matrix has changed) or an old cached 
+#inverse of the matrix is available. The first line of code checks if m has a value - if is does from the previous code, then it
+#just returns the inversed matrix assigned using the first function; if it doesn't (value is NULL) then it gets the matrixs and 
+#runs the inverse and saves the value as m and returns the inverse matrix. 
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
